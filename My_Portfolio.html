@@ -1,0 +1,427 @@
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Renzo Louis N. Osmillo | Developer Portfolio</title>
+            
+            <!-- Bootstrap 5.3 CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+            
+            <!-- Google Fonts (Poppins) -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+            
+            <!-- Font Awesome Icons -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+            <style>
+                body { padding-top: 40px; } 
+
+                .carousel-img {
+                    max-width: 70%; 
+                    max-height: 500px; 
+                    border-radius: 20px; 
+                    object-fit: cover; 
+                    margin-top: 20px;
+                }
+
+                .carousel-control-prev-icon,
+                .carousel-control-next-icon {
+                    filter: invert(1); 
+                }
+
+                .carousel-caption {
+                    filter: invert(1)
+                }
+
+                /* Style the profile image */
+                .profile-img {
+                    width: 100%; 
+                    max-width: 400px; 
+                    border: 5px solid darkslategray; 
+                }
+
+                .main-socials img{
+                    width: 25px;
+                    border-radius: 20px;
+                }
+
+                .main-socials a {
+                    max-width: 100px;
+                    transition: 0.3s ease-in-out;
+                }
+
+                .main-socials a:hover img {
+                    transform: scale(1.5);
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                @media only screen and (max-width: 500px){
+                    .profile-img {
+                        width: 70%;
+                        max-width: 200px; /* Limit size */    
+                    }
+
+                    #education {
+                        padding-top: 40px;
+                    }
+
+                    .carousel-item p {
+                        font-size: small;
+                    }
+
+                }
+
+                @media only screen and (max-width: 750px){
+
+                    #education {
+                        padding-top: 60px;
+                    }
+                    
+                    .table {
+                        width: 80%;
+                    }
+                }
+
+                /* Parallax Background */
+                .parallax-section {
+                    background: url('./white\ background.jpg') no-repeat center center/cover;
+                    height: 100vh; /* Full screen height */
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    font-size: 2rem;
+                    font-weight: bold;
+                    background-attachment: fixed; /* Creates the flowing effect */
+                }
+
+                .parallax-section2 {
+                    background: url('./white\ background.jpg') no-repeat center center/cover;
+                    display: flex;
+                    justify-content: center;
+                    background-attachment: fixed; 
+                    min-height: auto;
+                }
+
+                .parallax-section3 {
+                    background: url('./white\ background.jpg') no-repeat center center/cover;
+                    display: flex;
+                    justify-content: center;
+                    background-attachment: fixed; 
+                    min-height: auto;
+                    padding-top: 200px;
+                }
+
+                .custom-progress {
+                    background-color: darkslategrey !important;
+                }
+
+                .btn-primary {
+                    background: darkslategray;
+                }
+
+                .btn-primary:hover {
+                    background-color: white;
+                    color: darkslategray;
+                }
+
+
+            </style>
+        </head>
+        <body>
+            <!-- Navigation Bar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="#">My Personal Portfolio</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Profile -->
+            <div class="parallax-section">
+                <div id="about" class="container mt-5">
+                    <div class="row align-items-center">
+                        <!-- Profile Image -->
+                        <div class="col-md-4 text-center">
+                            <img src="../Personal Portfolio/images/portfolio-pic.png" class="img-fluid rounded-circle profile-img" alt="Your Photo">
+                        </div>
+                        
+                        <!-- Description and Social Icons -->
+                        <div class="col-md-8">
+                            <h1 class="mb-3">Hello, I'm Renzo!</h1>
+                            <p class="lead">
+                                I'm a passionate Web Developer with experience in HTML, CSS, and JavaScript. 
+                                I love creating innovative solutions and learning new technologies.
+                            </p>
+                            
+                            <!-- Social Media Icons -->
+                            <div class="main-socials">
+                                <a href="https://www.facebook.com/renzo.osmillo/" target="_blank"><img src="../Personal Portfolio/images/social/facebook.png" alt="facebook" width="100px"></a> 
+                                <a href="https://github.com/reluwi" target="_blank"><img src="../Personal Portfolio/images/social/GitHub.png" alt="Github" width="100px"></a> 
+                                <a href="https://www.instagram.com/_relulu/" target="_blank"><img src="../Personal Portfolio/images/social/Instagram.png" alt="instagram" width="100px"></a> 
+                                <a href="https://www.linkedin.com/in/renzo-louis-osmillo-03b140288/" target="_blank"><img src="../Personal Portfolio/images/social/linkedin.png" alt="linkedin" width="100px"></a> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Carousel -->
+            <div class="parallax-section">
+                <!-- Carousel -->
+                <div class="container">
+                    <div id="projectCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../Personal Portfolio/POMO Project.png" class="d-block mx-auto carousel-img" alt="POMO App">
+                                <div class="carousel-caption d-none d-md-block">
+                                </div>
+                                <p>Mobile App Project</p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../Personal Portfolio/WebGame Project.jpg" class="d-block mx-auto carousel-img" alt="Number Guessing Game">
+                                <div class="carousel-caption d-none d-md-block">
+                                </div>
+                                <p>Number Guessing Game Project</p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../Personal Portfolio/rock-paper-scissor WebGame.jpg" class="d-block mx-auto carousel-img" alt="Rock-Paper-Scissor Game">
+                                <div class="carousel-caption d-none d-md-block">
+                                </div>
+                                <p>Rock-Paper-Scissor Game Project</p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../Personal Portfolio/images/proj3.jpg" class="d-block mx-auto carousel-img" alt="Rising Youth Community Website">
+                                <div class="carousel-caption d-none d-md-block">
+                                </div>
+                                <p>Community-based Organization Website Project</p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../Personal Portfolio/images/proj2.jpg" class="d-block mx-auto carousel-img" alt="Interest Survey Website">
+                                <div class="carousel-caption d-none d-md-block">
+                                </div>
+                                <p>Interest Survey Form Project</p>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#projectCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#projectCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="parallax-section">
+                <section id="skills" class="container mt-5">
+                    <h2 class="text-center mb-4">Skills</h2>
+                    <div class="row">
+                        <!-- HTML Skill -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">HTML</h5>
+                                    <div class="progress">
+                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CSS Skill -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">CSS</h5>
+                                    <div class="progress">
+                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JavaScript Skill -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">JavaScript</h5>
+                                    <div class="progress">
+                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- C# Skill -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">C#</h5>
+                                    <div class="progress">
+                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Python# Skill -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Python</h5>
+                                    <div class="progress">
+                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- SQL# Skill -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">SQL</h5>
+                                    <div class="progress">
+                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Education & Work Experience Table -->
+            <div class="parallax-section2">
+                <section id="education" class="container mt-5">
+                    <h2 class="text-center">Education & Work Experience</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Institution/Company</th>
+                                    <th>Degree/Position</th>
+                                    <th>Years</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Polytechnic University of the Philippines</td>
+                                    <td>Bachelor of Science in Computer Science</td>
+                                    <td>2022-? (Ongoing)</td>
+                                </tr>
+                                <tr>
+                                    <td>University of the East</td>
+                                    <td>Senior High School</td>
+                                    <td>2020-2022</td>
+                                </tr>
+                                <tr>
+                                    <td>King Solomon Christian School Int'l</td>
+                                    <td>Junior High School</td>
+                                    <td>2016-2020</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Portfolio Projects -->
+            <div class="parallax-section3">
+                <section id="projects" class="container mt-5">
+                    <h2 class="text-center">Projects</h2>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">POMO</h5>
+                                    <p class="card-text">Mobile Application for both timer and task management.</p>
+                                    <a href="https://github.com/reluwi/POMO" target="_blank" class="btn btn-primary">View on Github</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Number Guessing Game</h5>
+                                    <p class="card-text">Website game for guessing random number with different difficulties.</p>
+                                    <a href="https://github.com/reluwi/AWSCC-CodeQuest-Frontend/tree/main/projects/04-number-game" target="_blank" class="btn btn-primary">View on Github</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Rock-Paper-Scissor Game</h5>
+                                    <p class="card-text">Website game that let you play the old-school rock-paper-scissor game virtually.</p>
+                                    <a href="https://github.com/reluwi/AWSCC-CodeQuest-Frontend/tree/main/projects/03-rock-paper-scissors" target="_blank" class="btn btn-primary">View on Github</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Rising Youth Community</h5>
+                                    <p class="card-text">Community-based organization website that promotes childe wellness.</p>
+                                    <a href="#None" class="btn btn-primary">No Domain Yet</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Interest Survey Form</h5>
+                                    <p class="card-text">Simple website for answering a interest survey form.</p>
+                                    <a href="#None" class="btn btn-primary">No Domain Yet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Contact Me Section -->
+            <div class="parallax-section3">
+                <section id="contact" class="container mt-5 mb-5">
+                    <h2 class="text-center">Contact Me</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Write your message here" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                </section>
+            </div>
+            
+            <!-- Footer -->
+            <footer class="bg-dark text-white text-center py-3">
+                &copy; 2025 My Personal Portfolio
+            </footer>
+        </body>
+    </html>
