@@ -17,131 +17,139 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
             <style>
-                body { padding-top: 40px; } 
-
-                .carousel-img {
-                    max-width: 70%; 
-                    max-height: 500px; 
-                    border-radius: 20px; 
-                    object-fit: cover; 
-                    margin-top: 20px;
+                :root {
+                    --bg-dark: #1a1a1a;
+                    --bg-card: #2c2c2c;
+                    --primary-color: #00bfa5; /* A vibrant teal */
+                    --text-light: #f5f5f5;
+                    --text-muted: #a0a0a0;
+                    --border-color: #444;
                 }
 
-                .carousel-control-prev-icon,
-                .carousel-control-next-icon {
-                    filter: invert(1); 
+                body {
+                    font-family: 'Poppins', sans-serif;
+                    background-color: var(--bg-dark);
+                    color: var(--text-light);
+                    padding-top: 70px; /* Space for fixed navbar */
                 }
 
-                .carousel-caption {
-                    filter: invert(1)
+                html { scroll-behavior: smooth; }
+                h1, h2, h3, h4, h5, h6 { font-weight: 700; color: var(--text-light); }
+
+                h2 {
+                    margin-bottom: 3rem;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    position: relative;
+                    display: inline-block;
                 }
 
-                /* Style the profile image */
+                h2::after {
+                    content: ''; display: block; width: 60px; height: 4px;
+                    background: var(--primary-color); margin: 10px auto 0;
+                }
+
+                /* Navigation Bar */
+                .navbar {
+                    background-color: rgba(26, 26, 26, 0.9);
+                    backdrop-filter: blur(10px);
+                    border-bottom: 1px solid var(--border-color);
+                }
+
+                .navbar-brand { font-weight: 700; color: var(--primary-color) !important; }
+                .nav-link { color: var(--text-light) !important; transition: color 0.3s ease; }
+                .nav-link:hover, .nav-link.active { color: var(--primary-color) !important; }
+                .navbar-toggler { border-color: var(--border-color); }
+                .navbar-toggler-icon { background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(245, 245, 245, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+                
+                 /* Hero Section */
+                #about { min-height: calc(100vh - 70px); display: flex; align-items: center; }
+
                 .profile-img {
-                    width: 100%; 
-                    max-width: 400px; 
-                    border: 5px solid darkslategray; 
+                    width: 250px; height: 250px; border-radius: 50%; object-fit: cover;
+                    border: 5px solid var(--primary-color); box-shadow: 0 0 30px rgba(0, 191, 165, 0.4);
                 }
 
-                .main-socials img{
-                    width: 25px;
-                    border-radius: 20px;
+                .typed-cursor { color: var(--primary-color); }
+
+                .social-icons a {
+                    color: var(--text-light); font-size: 1.5rem; margin: 0 1rem;
+                    transition: color 0.3s, transform 0.3s;
                 }
 
-                .main-socials a {
-                    max-width: 100px;
-                    transition: 0.3s ease-in-out;
+                .social-icons a:hover { color: var(--primary-color); transform: translateY(-5px); }
+                section { padding: 80px 0; }
+                .section-bg { background-color: #212121; }
+
+                /* Card Styling */
+                .card {
+                    background-color: var(--bg-card); border: 1px solid var(--border-color);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
                 }
 
-                .main-socials a:hover img {
-                    transform: scale(1.5);
-                    transition: transform 0.3s ease-in-out;
-                }
+                .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+                .card-img-top { border-bottom: 1px solid var(--border-color); height: 220px; object-fit: cover; }
 
-                @media only screen and (max-width: 500px){
-                    .profile-img {
-                        width: 70%;
-                        max-width: 200px; /* Limit size */    
-                    }
-
-                    #education {
-                        padding-top: 40px;
-                    }
-
-                    .carousel-item p {
-                        font-size: small;
-                    }
-
-                }
-
-                @media only screen and (max-width: 750px){
-
-                    #education {
-                        padding-top: 60px;
-                    }
-                    
-                    .table {
-                        width: 80%;
-                    }
-                }
-
-                /* Parallax Background */
-                .parallax-section {
-                    background: url('./white\ background.jpg') no-repeat center center/cover;
-                    height: 100vh; /* Full screen height */
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    text-align: center;
-                    font-size: 2rem;
-                    font-weight: bold;
-                    background-attachment: fixed; /* Creates the flowing effect */
-                }
-
-                .parallax-section2 {
-                    background: url('./white\ background.jpg') no-repeat center center/cover;
-                    display: flex;
-                    justify-content: center;
-                    background-attachment: fixed; 
-                    min-height: auto;
-                }
-
-                .parallax-section3 {
-                    background: url('./white\ background.jpg') no-repeat center center/cover;
-                    display: flex;
-                    justify-content: center;
-                    background-attachment: fixed; 
-                    min-height: auto;
-                    padding-top: 200px;
-                }
-
-                .custom-progress {
-                    background-color: darkslategrey !important;
-                }
-
+                .tech-badge { background-color: var(--primary-color); color: var(--bg-dark); font-weight: 600; }
                 .btn-primary {
-                    background: darkslategray;
+                    background-color: var(--primary-color); border-color: var(--primary-color);
+                    color: var(--bg-dark); font-weight: 600;
                 }
-
                 .btn-primary:hover {
-                    background-color: white;
-                    color: darkslategray;
+                    background-color: transparent; border-color: var(--primary-color);
+                    color: var(--primary-color);
                 }
 
+                /* Skills Section */
+                .skill-item {
+                    text-align: center; padding: 1rem; background-color: var(--bg-card); border-radius: 10px;
+                    border: 1px solid var(--border-color); transition: transform 0.3s ease;
+                }
+                .skill-item:hover { transform: translateY(-5px); }
+                .skill-item i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 0.5rem; }
+                .skill-item p { font-weight: 600; margin-bottom: 0; }
 
+                 /* Experience & Education Section */
+                .timeline { border-left: 2px solid var(--primary-color); padding: 0 0 0 2rem; margin: 2rem 0 0 1rem; position: relative; }
+                .timeline-item { position: relative; margin-bottom: 2.5rem; }
+                .timeline-item:last-child { margin-bottom: 0; }
+                .timeline-item::before {
+                    content: ''; position: absolute; left: -43px; top: 5px;
+                    width: 16px; height: 16px; border-radius: 50%;
+                    background-color: var(--primary-color); border: 3px solid var(--bg-dark);
+                }
+                .timeline-date { color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 0.25rem; }
+                .timeline-title { font-weight: 700; font-size: 1.25rem; color: var(--text-light); }
+                .timeline-company { font-weight: 400; color: var(--text-muted); }
+                
+                .certification-list li { margin-bottom: 0.5rem; }
+                
+                /* Projects */
+                .card-title { color: var(--text-light);}
+                .card-text { color: var(--text-muted); }
+
+                /* Contact & Footer */
+                .form-control { background-color: var(--bg-card); border-color: var(--border-color); color: var(--text-light); }
+                .form-control:focus {
+                    background-color: var(--bg-card); border-color: var(--primary-color);
+                    color: var(--text-light); box-shadow: 0 0 0 0.25rem rgba(0, 191, 165, 0.25);
+                }
+                footer { background-color: var(--bg-card); padding: 1.5rem 0; border-top: 1px solid var(--border-color); }
             </style>
         </head>
-        <body>
+        
+        <body data-bs-spy="scroll" data-bs-target="#navbarNav">
             <!-- Navigation Bar -->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <nav class="navbar navbar-expand-lg fixed-top">
                 <div class="container">
-                    <a class="navbar-brand" href="#">My Personal Portfolio</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                    <a class="navbar-brand" href="#">Renzo Osmillo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                             <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                             <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                             <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
@@ -151,277 +159,245 @@
                 </div>
             </nav>
 
-            <!-- Profile -->
-            <div class="parallax-section">
-                <div id="about" class="container mt-5">
-                    <div class="row align-items-center">
-                        <!-- Profile Image -->
-                        <div class="col-md-4 text-center">
-                            <img src="../Personal Portfolio/images/portfolio-pic.png" class="img-fluid rounded-circle profile-img" alt="Your Photo">
-                        </div>
-                        
-                        <!-- Description and Social Icons -->
-                        <div class="col-md-8">
-                            <h1 class="mb-3">Hello, I'm Renzo!</h1>
-                            <p class="lead">
-                                I'm a passionate Web Developer with experience in HTML, CSS, and JavaScript. 
-                                I love creating innovative solutions and learning new technologies.
-                            </p>
-                            
-                            <!-- Social Media Icons -->
-                            <div class="main-socials">
-                                <a href="https://www.facebook.com/renzo.osmillo/" target="_blank"><img src="../Personal Portfolio/images/social/facebook.png" alt="facebook" width="100px"></a> 
-                                <a href="https://github.com/reluwi" target="_blank"><img src="../Personal Portfolio/images/social/GitHub.png" alt="Github" width="100px"></a> 
-                                <a href="https://www.instagram.com/_relulu/" target="_blank"><img src="../Personal Portfolio/images/social/Instagram.png" alt="instagram" width="100px"></a> 
-                                <a href="https://www.linkedin.com/in/renzo-louis-osmillo-03b140288/" target="_blank"><img src="../Personal Portfolio/images/social/linkedin.png" alt="linkedin" width="100px"></a> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project Carousel -->
-            <div class="parallax-section">
-                <!-- Carousel -->
+            <!-- Hero/About Section -->
+            <section id="about" class="text-center text-md-start">
                 <div class="container">
-                    <div id="projectCarousel" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="../Personal Portfolio/POMO Project.png" class="d-block mx-auto carousel-img" alt="POMO App">
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                                <p>Mobile App Project</p>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../Personal Portfolio/WebGame Project.jpg" class="d-block mx-auto carousel-img" alt="Number Guessing Game">
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                                <p>Number Guessing Game Project</p>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../Personal Portfolio/rock-paper-scissor WebGame.jpg" class="d-block mx-auto carousel-img" alt="Rock-Paper-Scissor Game">
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                                <p>Rock-Paper-Scissor Game Project</p>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../Personal Portfolio/images/proj3.jpg" class="d-block mx-auto carousel-img" alt="Rising Youth Community Website">
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                                <p>Community-based Organization Website Project</p>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../Personal Portfolio/images/proj2.jpg" class="d-block mx-auto carousel-img" alt="Interest Survey Website">
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                                <p>Interest Survey Form Project</p>
+                    <div class="row align-items-center justify-content-center gy-4">
+                        <div class="col-md-4 text-center">
+                            <!-- Profile Image -->
+                            <img src="./images/Formal Pic.jpg" class="profile-img" alt="Renzo Louis N. Osmillo">
+                        </div>
+                        <div class="col-md-8">
+                            <h1 class="display-4">Renzo Louis N. Osmillo</h1>
+                            <h3 class="typed-cursor">A <span id="typed-text"></span></h3>
+                            <p class="lead mt-3">
+                                Motivated 3rd Year Computer Science student with a strong foundation in Web and App Development. 
+                                Eager to apply academic knowledge and hands-on experience to contribute meaningfully to real-world projects. 
+                                A fast learner and collaborative team player, committed to delivering quality work.
+                            </p>
+                        
+                            <div class="social-icons mt-4">
+                                <a href="https://www.linkedin.com/in/renzo-louis-osmillo-03b140288/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://github.com/reluwi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://www.facebook.com/renzo.osmillo/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="mailto:osmillo08@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#projectCarousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </a>
-                        <a class="carousel-control-next" href="#projectCarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </a>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Skills Grid -->
-            <div class="parallax-section">
-                <section id="skills" class="container mt-5">
-                    <h2 class="text-center mb-4">Skills</h2>
+            <!-- Experience Section -->
+            <section id="experience" class="section-bg text-center">
+                <div class="container">
+                    <h2>Professional Experience</h2>
                     <div class="row">
-                        <!-- HTML Skill -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">HTML</h5>
-                                    <div class="progress">
-                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
-                                    </div>
+                        <div class="col-md-10 mx-auto">
+                            <div class="timeline text-start">
+                                <div class="timeline-item">
+                                    <span class="timeline-date">Sept. 2024 - Present</span>
+                                    <h4 class="timeline-title">Co-Lead for Operations</h4>
+                                    <p class="timeline-company">AWS Cloud Club PUP - Manila</p>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- CSS Skill -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">CSS</h5>
-                                    <div class="progress">
-                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
-                                    </div>
+                                <div class="timeline-item">
+                                    <span class="timeline-date">Oct. 2024 - Present</span>
+                                    <h4 class="timeline-title">Logistic Officer in the Operations Office</h4>
+                                    <p class="timeline-company">Junior Blockchain Education Consortium of the Philippines - PUP Manila</p>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- JavaScript Skill -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">JavaScript</h5>
-                                    <div class="progress">
-                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- C# Skill -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">C#</h5>
-                                    <div class="progress">
-                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Python# Skill -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Python</h5>
-                                    <div class="progress">
-                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <!-- SQL# Skill -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">SQL</h5>
-                                    <div class="progress">
-                                        <div class="progress-bar custom-progress" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
-                                    </div>
+                                <div class="timeline-item">
+                                    <span class="timeline-date">November, 2023</span>
+                                    <h4 class="timeline-title">Junior Frontend Developer</h4>
+                                    <p class="timeline-company">AWS Cloud Club PUP - Manila</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
-            
-            <!-- Education & Work Experience Table -->
-            <div class="parallax-section2">
-                <section id="education" class="container mt-5">
-                    <h2 class="text-center">Education & Work Experience</h2>
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>Institution/Company</th>
-                                    <th>Degree/Position</th>
-                                    <th>Years</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Polytechnic University of the Philippines</td>
-                                    <td>Bachelor of Science in Computer Science</td>
-                                    <td>2022-? (Ongoing)</td>
-                                </tr>
-                                <tr>
-                                    <td>University of the East</td>
-                                    <td>Senior High School</td>
-                                    <td>2020-2022</td>
-                                </tr>
-                                <tr>
-                                    <td>King Solomon Christian School Int'l</td>
-                                    <td>Junior High School</td>
-                                    <td>2016-2020</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </div>
+                </div>
+            </section>
 
-            <!-- Portfolio Projects -->
-            <div class="parallax-section3">
-                <section id="projects" class="container mt-5">
-                    <h2 class="text-center">Projects</h2>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card">
-                                <div class="card-body">
+            <!-- Projects Section -->
+            <section id="projects" class="text-center">
+                <div class="container">
+                    <h2>Projects</h2>
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card h-100">
+                                <img src="../Personal Portfolio/images/BigBang.png" class="card-img-top" alt="The Big Bang Project">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">The Big Bang</h5>
+                                    <p class="card-text">Web application project involving UI design and backend contribution.</p>
+                                    <div class="mt-auto pt-3">
+                                        <span class="badge tech-badge me-1">Figma</span>
+                                        <span class="badge tech-badge">JavaScript</span>
+                                        <a href="#" class="btn btn-primary w-100 mt-3">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card h-100">
+                                <img src="https://placehold.co/600x400/2c2c2c/FFFFFF?text=SHIBACHI+GAME" class="card-img-top" alt="Shibachi Game Project">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">SHIBACHI GAME</h5>
+                                    <p class="card-text">An interactive cooking game for a Human Computer Interaction project.</p>
+                                    <div class="mt-auto pt-3">
+                                        <span class="badge tech-badge me-1">Godot</span>
+                                        <span class="badge tech-badge">GDScript</span>
+                                        <a href="#" class="btn btn-primary w-100 mt-3">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card h-100">
+                                <!-- IMPORTANT: Replace image path -->
+                                <img src="../Personal Portfolio/POMO Project.png" class="card-img-top" alt="POMO App Project">
+                                <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">POMO</h5>
-                                    <p class="card-text">Mobile Application for both timer and task management.</p>
-                                    <a href="https://github.com/reluwi/POMO" target="_blank" class="btn btn-primary">View on Github</a>
+                                    <p class="card-text">Mobile application project where I led the team and managed backend/frontend.</p>
+                                    <div class="mt-auto pt-3">
+                                        <span class="badge tech-badge me-1">.NET MAUI</span>
+                                        <span class="badge tech-badge me-1">XAML</span>
+                                        <span class="badge tech-badge">C#</span>
+                                        <a href="https://github.com/reluwi/POMO" target="_blank" class="btn btn-primary w-100 mt-3">View on GitHub</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Number Guessing Game</h5>
-                                    <p class="card-text">Website game for guessing random number with different difficulties.</p>
-                                    <a href="https://github.com/reluwi/AWSCC-CodeQuest-Frontend/tree/main/projects/04-number-game" target="_blank" class="btn btn-primary">View on Github</a>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card h-100">
+                                <!-- IMPORTANT: Replace image path -->
+                                <img src="https://placehold.co/600x400/2c2c2c/FFFFFF?text=IKEA+App" class="card-img-top" alt="IKEA Application Project">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">IKEA APPLICATION</h5>
+                                    <p class="card-text">Mobile app school project with a focus on algorithm design and front-end.</p>
+                                    <div class="mt-auto pt-3">
+                                        <span class="badge tech-badge me-1">C#</span>
+                                        <span class="badge tech-badge">Windows Forms</span>
+                                        <a href="#" class="btn btn-primary w-100 mt-3">View Project</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Rock-Paper-Scissor Game</h5>
-                                    <p class="card-text">Website game that let you play the old-school rock-paper-scissor game virtually.</p>
-                                    <a href="https://github.com/reluwi/AWSCC-CodeQuest-Frontend/tree/main/projects/03-rock-paper-scissors" target="_blank" class="btn btn-primary">View on Github</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Rising Youth Community</h5>
-                                    <p class="card-text">Community-based organization website that promotes childe wellness.</p>
-                                    <a href="#None" class="btn btn-primary">No Domain Yet</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Interest Survey Form</h5>
-                                    <p class="card-text">Simple website for answering a interest survey form.</p>
-                                    <a href="#None" class="btn btn-primary">No Domain Yet</a>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card h-100">
+                                <!-- IMPORTANT: Replace image path -->
+                                <img src="https://placehold.co/600x400/2c2c2c/FFFFFF?text=PAGIBIG+App" class="card-img-top" alt="4PH PAGIBIG Housing Loan Application">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">4PH PAGIBIG HOUSING LOAN</h5>
+                                    <p class="card-text">Windows app for information management, handling front-end and database.</p>
+                                    <div class="mt-auto pt-3">
+                                        <span class="badge tech-badge me-1">C#</span>
+                                        <span class="badge tech-badge me-1">WinForms</span>
+                                        <span class="badge tech-badge">MySQL</span>
+                                        <a href="#" class="btn btn-primary w-100 mt-3">View Project</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section-bg text-center">
+                <div class="container">
+                    <h2>Skills</h2>
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fab fa-html5"></i><p>HTML5</p></div></div>
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fab fa-css3-alt"></i><p>CSS3</p></div></div>
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fab fa-js-square"></i><p>JavaScript</p></div></div>
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fab fa-php"></i><p>PHP</p></div></div>
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fab fa-microsoft"></i><p>C# & .NET</p></div></div>
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fas fa-code"></i><p>C</p></div></div>
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fab fa-java"></i><p>Java</p></div></div>
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fab fa-python"></i><p>Python</p></div></div>
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fas fa-database"></i><p>MySQL</p></div></div>
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fab fa-git-alt"></i><p>Git</p></div></div>
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fab fa-figma"></i><p>Figma</p></div></div>
+                        <div class="col-lg-2 col-md-3 col-4"><div class="skill-item"><i class="fas fa-gamepad"></i><p>Godot/Unity</p></div></div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Education & Certifications Section -->
+            <section id="education" class="text-center">
+                <div class="container">
+                    <h2>Education & Certifications</h2>
+                    <div class="row gy-5">
+                        <!-- Education -->
+                        <div class="col-lg-8 mx-auto text-start">
+                            <h3 class="mb-4">Education</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <span class="timeline-date">2022 - Present</span>
+                                    <h4 class="timeline-title">Bachelor of Science in Computer Science</h4>
+                                    <p class="timeline-company">Polytechnic University of the Philippines - Manila</p>
+                                    <p class="text-muted fst-italic">Consistent President's Lister: Achieved top academic distinction every semester.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="timeline-date">2020 - 2022</span>
+                                    <h4 class="timeline-title">Senior High School</h4>
+                                    <p class="timeline-company">University of the East - Manila</p>
+                                    <p class="text-muted fst-italic">With High Honors Academic Achievement.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Certifications -->
+                        <div class="col-lg-8 mx-auto text-start">
+                            <h3 class="mb-4">Certifications</h3>
+                            <ul class="list-unstyled certification-list">
+                                <li><i class="fas fa-award text-primary me-2"></i><strong>Introduction to Cybersecurity</strong> - Cisco Networking Academy</li>
+                                <li><i class="fas fa-award text-primary me-2"></i><strong>Fortinet Certified Associate in Cybersecurity</strong></li>
+                                <li><i class="fas fa-award text-primary me-2"></i><strong>Fortinet Certified Fundamentals Cybersecurity</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Contact Me Section -->
-            <div class="parallax-section3">
-                <section id="contact" class="container mt-5 mb-5">
-                    <h2 class="text-center">Contact Me</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            <section id="contact" class="section-bg text-center">
+                <div class="container">
+                    <h2>Get In Touch</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <p class="mb-4">Have a project in mind or just want to say hi? My inbox is always open. I'll get back to you as soon as possible!</p>
+                            <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST"> <!-- IMPORTANT: Replace with your Formspree ID -->
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" required>
+                                    <label for="name">Your Name</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                    <label for="email">Your Email</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Write your message here" style="height: 150px" required></textarea>
+                                    <label for="message">Your Message</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea class="form-control" id="message" rows="5" placeholder="Write your message here" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                    </form>
-                </section>
-            </div>
+                    </div>
+                </div>
+            </section>
             
             <!-- Footer -->
-            <footer class="bg-dark text-white text-center py-3">
-                &copy; 2025 My Personal Portfolio
+            <footer class="text-center">
+                <div class="container">
+                    <p class="mb-0 text-muted">© <span id="year"></span> Renzo Louis N. Osmillo. All Rights Reserved.</p>
+                </div>
             </footer>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+            <script>
+                new Typed('#typed-text', {
+                    strings: ['Computer Science Student', 'Web & App Developer', 'Problem Solver', 'Team Player'],
+                    typeSpeed: 60, backSpeed: 40, loop: true
+                });
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
         </body>
     </html>
